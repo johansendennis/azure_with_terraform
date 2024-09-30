@@ -11,6 +11,7 @@
 
 # Terraform .tfvars files, which are likely to contain sensitive data
 *.tfvars
+*.terraform.tfvars
 *.tfvars.json
 
 # Terraform override files as they are usually used to override resources locally
