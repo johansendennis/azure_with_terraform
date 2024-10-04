@@ -7,10 +7,10 @@ terraform {
   }
 }
 
-provider "azurerm" {
-  features {}
-  subscription_id = "1244087b-9673-4698-8804-02c33afdf642"
-}
+  provider "azurerm" {
+    features {}
+    subscription_id = var.subscription_id
+  }
 
 # Create a resource group
 resource "azurerm_resource_group" "rg" {
