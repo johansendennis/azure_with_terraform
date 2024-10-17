@@ -53,4 +53,11 @@ jobs:
           script: |
             const fs = require('fs');
             const plan = JSON.parse(fs.readFileSync('tfplan.tfplan', 'utf8'));
-            const output =
+
+      - name: Terraform Plan Status
+        if: steps.plan.outcome == 'failure'
+        run: exit 1
+
+      - name: Terraform Apply
+        if: github.event_name == 'push' && github.ref == 'push'
+        run: terraform apply -auto-approve tfplan.tfplan
